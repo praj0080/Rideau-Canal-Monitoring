@@ -202,7 +202,7 @@ Make use of the SQL query that follows:
  ```
 4. To see the combined findings, download or look into the output JSON files.
 
-## 📊 Results
+## 5 📊 Results
 
 # key findings:
 -The ingestion and real-time processing of sensor data via all three locations (Dow's Lake, Fifth Avenue, and NAC) were carried out with success.
@@ -221,7 +221,7 @@ Make use of the SQL query that follows:
 
 - This indicates that in Dow's Lake, the **maximum snow accumulation** had been 14 cm and the **average ice thickness** was 28.1 cm for a 5-minute period.
 ---
-## 🧠 Reflection
+## 6 🧠 Reflection
 The following were the challenges encountered: 
 1. **Python Environment Issues** - On certain systems, the absence of PATH configurations stopped `pip` and `python` from being recognized.
    Solution: During setup, choose "Add to PATH" and install Python from python.org.
