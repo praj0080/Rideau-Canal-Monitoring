@@ -4,7 +4,7 @@
 The Rideau Canal Skateway in Ottawa serves as a well-known winter destination that needs constant supervision to guarantee skater safety. Implementing a real-time data streaming system which gathers environmental data from simulated IoT sensors installed at three key canal locations—Dow's Lake, Fifth Avenue, and NAC—is the aim of this project. When hazardous weather or ice conditions are detected, this system records the information in Azure Blob Storage for later study.
 
 ## 2.  🧩 System Architecture ##
-
+![Image](https://github.com/user-attachments/assets/9c325e6b-1cc8-40ed-a43a-0b3c06d743b7)
 ### 🔄 Data Flow Summary:
 - **IoT Devices** (Simulated):Every ten seconds, collect data on snow, temperature, and ice thickness.
 - **Azure IoT Hub**: receives information from sensors.
