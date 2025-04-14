@@ -140,12 +140,12 @@ skateway/YYYY/MM/DD/HH
 The IoT simulation may be run, Azure services can be established, stored data may be retrieved, and project obstacles have been addressed in detail in this article.
 
 ## ▶️ Running the IoT Sensor Simulation
-1.**Clone the repository on GitHub**
+1. **Clone the repository on GitHub**
  ```bash
    git clone https://github.com/praj0080/Rideau-Canal-Monitoring.git
    cd Rideau-Canal-Monitoring/sensor-simulation
    ```
-2.**Install the necessary Python libraries.**
+2. **Install the necessary Python libraries.**
    Run the following command to make sure `pip` is functional: 
    ```bash pip install azure-iot-device ```
 3. **Set Up Connection Strings for Devices**
@@ -154,7 +154,7 @@ The IoT simulation may be run, Azure services can be established, stored data ma
      - sensor-dowslak`
      - `sensor-fifthave`
      - `sensor-nac`
-4.**Start the Simulation Script** 
+4. **Start the Simulation Script** 
   ```bash python simulate_sensors.py ```
     Every ten seconds, this device will begin transferring Azure IoT Hub simulated telemetry data.
 
@@ -203,6 +203,7 @@ Make use of the SQL query that follows:
 4. To see the combined findings, download or look into the output JSON files.
 
 ## 📊 Results
+
 # key findings:
 -The ingestion and real-time processing of sensor data via all three locations (Dow's Lake, Fifth Avenue, and NAC) were carried out with success.
 -Using tumbling windows, data was analyzed every five minutes to determine the maximum amount of snow accumulation and average ice thickness for each location.
