@@ -69,9 +69,7 @@ and then paste it within the appropriate Python simulation script.
 The **built-in endpoint** represents the destination for all incoming messages.
 There were no new routes or unique endpoints made.
 📌 With just one analytics pipeline, this streamlines setup and is effective for small to medium-sized enterprises.
-## 📸 Screenshot Reference
-View the screenshots of all three connected devices at `screenshots/iot-hub-devices.png` for visual proof.
-A screenshot of the overview and default endpoints can be found at `screenshots/iot-hub-overview.png` *(if available)*.
+
 ---
 # 🔄 Azure Stream Analytics Job Configuration
 The Azure Stream Analytics task set up to manage the Rideau Canal Skateway Real-Time Monitoring System is detailed in depth in this document.
