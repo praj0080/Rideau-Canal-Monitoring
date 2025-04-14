@@ -22,6 +22,7 @@ Utilizing the Azure IoT Hub SDK, three Python-simulated devices send sensor data
   "externalTemperature": -4,
   "timestamp": "2024-11-23T12:00:00Z"
 }
+---
 **### Script File:**
 sensor-simulation/simulate_sensors.py
 The script pushes information to the IoT Hub utilizing device-specific connecting credentials via the Azure IoT Device SDK.
