@@ -1,8 +1,9 @@
-# Real-Time Monitoring System for Rideau Canal Skateway# Rideau-Canal-Monitoring
-## 📘 Scenario Description
+# Real-Time Monitoring System for Rideau Canal Skateway
+
+## 1.  📘 Scenario Description ##
 The Rideau Canal Skateway in Ottawa serves as a well-known winter destination that needs constant supervision to guarantee skater safety. Implementing a real-time data streaming system which gathers environmental data from simulated IoT sensors installed at three key canal locations—Dow's Lake, Fifth Avenue, and NAC—is the aim of this project. When hazardous weather or ice conditions are detected, this system records the information in Azure Blob Storage for later study.
 
-## 🧩 System Architecture
+## 2.  🧩 System Architecture ##
 
 ### 🔄 Data Flow Summary:
 - **IoT Devices** (Simulated):Every ten seconds, collect data on snow, temperature, and ice thickness.
@@ -10,7 +11,7 @@ The Rideau Canal Skateway in Ottawa serves as a well-known winter destination th
 - **Azure Stream Analytics**: Real-time processing and gathering of incoming telemetry.
 - **Azure Blob Storage**: keeps the information that has been processed for further examination.
 ---
-## ⚙️ Implementation Details
+## 3. ⚙️ Implementation Details ##
 ### 🛰️ IoT Sensor Simulation
 Utilizing the Azure IoT Hub SDK, three Python-simulated devices send sensor data every ten seconds. Every data record contains:
 ```json
@@ -25,6 +26,7 @@ Utilizing the Azure IoT Hub SDK, three Python-simulated devices send sensor data
 ```
 ### Script File:
 sensor-simulation/simulate_sensors.py
+
 The script pushes information to the IoT Hub utilizing device-specific connecting credentials via the Azure IoT Device SDK.
 
 ## 🔐 Azure IoT Hub Configuration
