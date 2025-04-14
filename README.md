@@ -135,7 +135,8 @@ skateway/YYYY/MM/DD/HH
   "max_snowAccumulation": 14
 }
 ```
-4 # 🚀 Usage Instructions
+---
+## 4 🚀 Usage Instructions 
 The IoT simulation may be run, Azure services can be established, stored data may be retrieved, and project obstacles have been addressed in detail in this article.
 
 ## ▶️ Running the IoT Sensor Simulation
