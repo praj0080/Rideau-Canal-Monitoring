@@ -119,3 +119,118 @@ Using a tumbling window, the Stream Analytics inquiry aggregates values every fi
 # 💾 Azure Blob Storage Configuration
 It defines the folder structure, file format, and naming standards for the processed data from Azure Stream Analytics that are saved in Azure Blob Storage.
 
+## 📂 Folder Structure
+The output data is automatically separated by time in Azure Stream Analytics. The year, month, day, and hour have been utilized to arrange the data into hierarchical folders. Future integrations as well as effective querying and processing are supported by this structure.
+```
+skateway/YYYY/MM/DD/HH
+```
+## 📄 File Format
+- **Format**: JSON (the output settings option for Stream Analytics by default)
+**Example Record:**
+```json
+{
+  "location": "Dow's Lake",
+  "window_end": "2024-11-23T12:10:00Z",
+  "avg_iceThickness": 28.1,
+  "max_snowAccumulation": 14
+}
+```
+4 # 🚀 Usage Instructions
+The IoT simulation may be run, Azure services can be established, stored data may be retrieved, and project obstacles have been addressed in detail in this article.
+
+## ▶️ Running the IoT Sensor Simulation
+1.**Clone the repository on GitHub**
+ ```bash
+   git clone https://github.com/your-username/Rideau-Canal-Monitoring.git
+   cd Rideau-Canal-Monitoring/sensor-simulation
+   ```
+2.**Install the necessary Python libraries.**
+   Run the following command to make sure `pip` is functional: 
+   ```bash pip install azure-iot-device ```
+3. **Set Up Connection Strings for Devices**
+   Launch the `simulate_sensors.py` file.
+   Use your real Azure IoT Hub device link strings in place of the placeholders for:
+     - sensor-dowslake`
+     - `sensor-fifthave`
+     - `sensor-nac`
+4.**Start the Simulation Script** 
+  ```bash python simulate_sensors.py ```
+    Every ten seconds, this device will begin transferring Azure IoT Hub simulated telemetry data.
+
+## 🔧 Configuring Azure Services
+
+### 1. **Setup of Azure IoT Hub**
+In the Azure Portal, create a fresh IoT hub.
+Three devices should be identified in accordance with the three sensor locations.
+In the simulation script, copy the connection strings.
+
+### 2. The job of Azure Stream Analytics
+Make a new job in Stream Analytics.
+Set up the IoT Hub's **input** source (`iothubinput`).
+Set Azure Blob Storage (`outputstorage`) as the **output** destination.
+Make use of the SQL query that follows:
+ ```sql
+  SELECT
+      location,
+      System.Timestamp AS window_end,
+      AVG(CAST(iceThickness AS float)) AS avg_iceThickness,
+      MAX(CAST(snowAccumulation AS float)) AS max_snowAccumulation
+  INTO
+      [outputstorage]
+  FROM
+      [iothubinput] TIMESTAMP BY timestamp
+  GROUP BY
+      location,
+      TumblingWindow(minute, 5)
+  ```
+
+
+### 3. **Azure Blob Storage Setup** - Rename the blob container `stream-output` and set up a storage account.
+- Add it to your Stream Analytics task for an output.
+
+## 📁 Accessing Stored Data in Azure Blob Storage
+1. Launch the Azure Portal.
+2. Go to **Containers** → **Storage Account** → `stream-output`
+3. Examine the folder structure:
+```
+   year=YYYY/
+     └── month=MM/
+         └── day=DD/
+             └── hour=HH/
+                 └── result.json
+ ```
+4. To see the combined findings, download or look into the output JSON files.
+
+## 📊 Results
+# key findings:
+-The ingestion and real-time processing of sensor data via all three locations (Dow's Lake, Fifth Avenue, and NAC) were carried out with success.
+-Using tumbling windows, data was analyzed every five minutes to determine the maximum amount of snow accumulation and average ice thickness for each location.
+-The output was arranged as JSON files and kept in ordered folders in Azure Blob Storage.
+
+### 🔍 Sample Output (from Blob Storage)
+```json
+{
+  "location": "Dow's Lake",
+  "window_end": "2024-11-23T12:10:00Z",
+  "avg_iceThickness": 28.1,
+  "max_snowAccumulation": 14
+}
+```
+
+- This indicates that in Dow's Lake, the **maximum snow accumulation** had been 14 cm and the **average ice thickness** was 28.1 cm for a 5-minute period.
+---
+## 🧠 Reflection
+The following were the challenges encountered: 
+1. **Python Environment Issues** - On certain systems, the absence of PATH configurations stopped `pip` and `python` from being recognized.
+   Solution: During setup, choose "Add to PATH" and install Python from python.org.
+2. **Incorrect Stream Analytics Query**
+   The output initially went to the input alias (`INTO iothubinput`) rather than Blob storage after an incorrect stream analytics query.
+   The query had been modified to `INTO [outputstorage] FROM [iothubinput]` as the solution.
+3. **Testing Message Flow**
+   The telemetry transfer within the script, IoT Hub, and Blob Storage needed to be observed in Azure. 
+   The solution required to verify incoming data using Azure's "Monitor" tab for IoT Hub along with Blob Storage containers.
+
+
+
+
+
