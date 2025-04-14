@@ -57,20 +57,17 @@ Following the creation of every device:
 To authenticate, click on the device name, copy the **Primary Connection String**, 
 and then paste it within the appropriate Python simulation script.
 
----
 ## 🔐 Endpoints & Consumer Groups
 - Azure IoT Hub dynamically sets up an endpoint with the label **events** for Device-to-Cloud (D2C) connections.
 - **Group of consumers used:** `$Default`
+-  For this project, no extra consumer groups or unique endpoints were required.
 
-💡 For this project, no extra consumer groups or unique endpoints were required.
----
 ## ✉️ Routing Messages
 **Default message routing** was employed for this project:
 The **built-in endpoint** represents the destination for all incoming messages.
 There were no new routes or unique endpoints made.
 📌 With just one analytics pipeline, this streamlines setup and is effective for small to medium-sized enterprises.
 
----
 # 🔄 Azure Stream Analytics Job Configuration
 The Azure Stream Analytics task set up to manage the Rideau Canal Skateway Real-Time Monitoring System is detailed in depth in this document.
 ## 📌 Purpose
@@ -92,7 +89,7 @@ Real-time sensor data from Azure IoT Hub is processed by the Stream Analytics jo
 3. Select the `$Default` consumer group and the relevant IoT hub.
 4. Configure `iothubinput` as the alias.
 5. Save the setup.
----
+6. 
 ## 📥 Logic of Queries
 
 Sensor information can be sorted by location and processed by the job every five minutes. The objective is to calculate:
@@ -136,7 +133,8 @@ skateway/YYYY/MM/DD/HH
 }
 ```
 ---
-## 4 🚀 Usage Instructions 
+## 4 🚀 Usage Instructions
+---
 The IoT simulation may be run, Azure services can be established, stored data may be retrieved, and project obstacles have been addressed in detail in this article.
 
 ## ▶️ Running the IoT Sensor Simulation
@@ -201,9 +199,9 @@ Make use of the SQL query that follows:
                  └── result.json
  ```
 4. To see the combined findings, download or look into the output JSON files.
-
+---
 ## 5 📊 Results
-
+---
 # key findings:
 -The ingestion and real-time processing of sensor data via all three locations (Dow's Lake, Fifth Avenue, and NAC) were carried out with success.
 -Using tumbling windows, data was analyzed every five minutes to determine the maximum amount of snow accumulation and average ice thickness for each location.
@@ -222,6 +220,7 @@ Make use of the SQL query that follows:
 - This indicates that in Dow's Lake, the **maximum snow accumulation** had been 14 cm and the **average ice thickness** was 28.1 cm for a 5-minute period.
 ---
 ## 6 🧠 Reflection
+---
 The following were the challenges encountered: 
 1. **Python Environment Issues** - On certain systems, the absence of PATH configurations stopped `pip` and `python` from being recognized.
    Solution: During setup, choose "Add to PATH" and install Python from python.org.
