@@ -36,10 +36,10 @@ This section provides instructions on how to configure the Azure IoT Hub, explai
 1. Establish an IoT hub
    Go to [Azure Portal] (https://portal.azure.com) and select **Create a resource**. To proceed, The Internet of Things as a whole IoT Hub
    Please complete the following:
-     - **IoT Hub Name:** `rideau-iot-hub` 
+     - **IoT Hub Name:** `skateway-hub` 
      - **area:** Select an area around Ottawa (such as Canada Central) 
      - **Pricing Tier:** F1 (Free Tier) 
-     - **Resource Group:** (e.g., RideauProjectGroup)
+     - **Resource Group:** FinalProject
 2. **Wait for Deployment**
 After deployment is finished, access the resource.
 
@@ -48,7 +48,7 @@ After deployment is finished, access the resource.
 Navigate to:
 - **IoT Hub → Devices (under Device management)**
 Select **+ New Device** for every place:
-- Device ID: `sensor-dowslake`
+- Device ID: `sensor-dowslak`
 - Device ID: `sensor-fifthave`
 - Device ID: `sensor-nac`
 
@@ -80,7 +80,7 @@ Real-time sensor data from Azure IoT Hub is processed by the Stream Analytics jo
 ### Input Alias: `iothubinput`
 
 **Source Type**: Azure IoT Hub  
-**Selected Hub**: `rideau-iot-hub`  
+**Selected Hub**: `skateway-hub`  
 **Consumer Group**: `$Default`  
 **Data Format**: JSON  
 **Encoding**: UTF-8  
@@ -141,7 +141,7 @@ The IoT simulation may be run, Azure services can be established, stored data ma
 ## ▶️ Running the IoT Sensor Simulation
 1.**Clone the repository on GitHub**
  ```bash
-   git clone https://github.com/your-username/Rideau-Canal-Monitoring.git
+   git clone https://github.com/praj0080/Rideau-Canal-Monitoring.git
    cd Rideau-Canal-Monitoring/sensor-simulation
    ```
 2.**Install the necessary Python libraries.**
@@ -150,7 +150,7 @@ The IoT simulation may be run, Azure services can be established, stored data ma
 3. **Set Up Connection Strings for Devices**
    Launch the `simulate_sensors.py` file.
    Use your real Azure IoT Hub device link strings in place of the placeholders for:
-     - sensor-dowslake`
+     - sensor-dowslak`
      - `sensor-fifthave`
      - `sensor-nac`
 4.**Start the Simulation Script** 
